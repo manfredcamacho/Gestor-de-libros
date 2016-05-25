@@ -48,5 +48,5 @@ Temporary Items
 *.project
 *.classpath
 *.prefs
-bin/
-bin\
+bin/**
+
