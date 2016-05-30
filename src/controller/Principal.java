@@ -1,12 +1,13 @@
 package controller;
 
 import model.BibliotecaModel;
-import view.consola.ConsolaView;
+import view.View;
+import view.GUI.GUIMainView;
 
 public class Principal {
-	private controller.Gestor gestor;
-	private view.consola.ConsolaView view;
-	private model.BibliotecaModel bibliotecaModel;
+	private Gestor gestor;
+	private View view;
+	private BibliotecaModel bibliotecaModel;
 	
 	public static void main(String[] args) {
 		Principal principal = new Principal();
@@ -14,7 +15,7 @@ public class Principal {
 	}
 	
 	private void iniciar(){
-		view = new ConsolaView();
+		view = new GUIMainView();
 		bibliotecaModel = new BibliotecaModel();
 		gestor = new Gestor();
 		

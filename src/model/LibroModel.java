@@ -2,16 +2,25 @@ package model;
 
 public class LibroModel implements Comparable<LibroModel> {
 
+	public static final Class<?>[] CLASES_PROPIEDADES = new Class[] { 
+			String.class,
+			String.class, 
+			String.class, 
+			String.class, 
+			Integer.class, 
+			Integer.class 
+		};
+
     private String ISBN;
     private String titulo;
     private String autor;
     private String editorial;
-    private int edicion;
-    private int anno_de_publicacion;
+    private Integer edicion;
+    private Integer anno_de_publicacion;
 
     @Override
     public boolean equals(Object libro) {
-        return this==libro || (libro instanceof LibroModel && ISBN.equals(((LibroModel)libro).ISBN));
+        return this==libro || (libro!=null && libro instanceof LibroModel && ISBN.equals(((LibroModel)libro).ISBN));
     }
 
     @Override
@@ -65,19 +74,19 @@ public class LibroModel implements Comparable<LibroModel> {
         this.editorial = editorial;
     }
 
-    public int getEdicion() {
+    public Integer getEdicion() {
         return edicion;
     }
     
-    public void setEdicion(int edicion) {
+    public void setEdicion(Integer edicion) {
         this.edicion = edicion;
     }
 
-    public int getAnno_de_publicacion() {
+    public Integer getAnno_de_publicacion() {
         return anno_de_publicacion;
     }
     
-    public void setAnno_de_publicacion(int anno_de_publicacion) {
+    public void setAnno_de_publicacion(Integer anno_de_publicacion) {
         this.anno_de_publicacion = anno_de_publicacion;
     }
 }

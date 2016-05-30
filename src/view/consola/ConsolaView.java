@@ -7,7 +7,7 @@ import controller.Gestor;
 import model.LibroModel;
 import view.View;
 
-public class ConsolaView implements View{
+public class ConsolaView implements View {
 
 	private Gestor gestor;
 	private Scanner teclado = new Scanner(System.in);
