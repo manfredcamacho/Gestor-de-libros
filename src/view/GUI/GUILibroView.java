@@ -166,6 +166,9 @@ public class GUILibroView extends JFrame implements View {
 	}
 	
 	private void guardarLibro(){
+		/*
+		 * Valido que los campos del alta del libro estan completados
+		 */
 		if( this.txtISBN.getText().isEmpty() || this.txtTitulo.getText().isEmpty()
 			|| this.txtAutor.getText().isEmpty() || this.txtEditorial.getText().isEmpty()
 			|| this.txtEdicion.getText().isEmpty() || this.txtAnioPublicacion.getText().isEmpty() ){
@@ -175,6 +178,9 @@ public class GUILibroView extends JFrame implements View {
 					"Error", JOptionPane.ERROR_MESSAGE
 				);
 		} else {
+			/*
+			 * si los datos estan completos se carga el libro
+			 */
 			this.libro.setISBN(this.txtISBN.getText());
 			this.libro.setTitulo(this.txtTitulo.getText());
 			this.libro.setAutor(this.txtAutor.getText());
@@ -190,6 +196,10 @@ public class GUILibroView extends JFrame implements View {
 				}
 				this.volver();
 			} catch (NumberFormatException e){
+				/*
+				 * En caso de no ingresar un entero en edicion o a�o
+				 * se lanza un excepcion mostrando un mensaje.
+				 */
 				JOptionPane.showMessageDialog( 
 						this, "Debe ingresar valores numéricos para campos Número de Edición y Año", 
 						"Error", JOptionPane.ERROR_MESSAGE
@@ -200,6 +210,10 @@ public class GUILibroView extends JFrame implements View {
 	}
 
 	private void volver() {
+		/*
+		 * Hace desaparecer la ventana actual y hace visble la
+		 * ventana anterior.
+		 */
 		this.dispose();
 		this.parentComponent.setVisible(true);
 	}

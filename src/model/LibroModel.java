@@ -20,6 +20,10 @@ public class LibroModel implements Comparable<LibroModel> {
 
     @Override
     public boolean equals(Object libro) {
+    	/*
+    	 * para decidir si un libro es igual a otro me baso
+    	 * principalmente en el ISBN del libro
+    	 */
         return this==libro || (libro!=null && libro instanceof LibroModel && ISBN.equals(((LibroModel)libro).ISBN));
     }
 
@@ -33,6 +37,10 @@ public class LibroModel implements Comparable<LibroModel> {
     
     @Override
     public String toString() {
+    	/*
+    	 * Realizo un formateo de un libro para poder mnostrarlo
+    	 * como una cadena.
+    	 */
         return
             "ISBN               : " + ISBN + "\n" +
             "titulo             : " + titulo + "\n" +

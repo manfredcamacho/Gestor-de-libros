@@ -14,6 +14,10 @@ public class ConsolaView implements View {
 	private PrintStream out = System.out;
 	
 	public ConsolaView(){
+		/*
+		 * Esto es para verificar si estamos en un sistema linux
+		 * u otro
+		 */
 		if(!System.getProperties().get("os.name").equals("Linux") && System.console()!=null)
             try {
                 out = new PrintStream(System.out, true, "CP850");
@@ -23,15 +27,26 @@ public class ConsolaView implements View {
 	
     @Override
 	public void mostrarView() {
+    	/*
+    	 * metodo principal para mostrar la vista
+    	 */
 		mostrarPantallaPrincipal();		
 	}
     
 	@Override
     public void setGestor(Gestor gestor){
+		/*
+		 * fundamental para la ocmunicacion entre 
+		 * clases respetando el modelo MVC
+		 */
     	this.gestor = gestor;
     }
 	
 	private void mostrarPantallaPrincipal(){
+		/*
+		 * Muestro la pantalla principal de la aplicacion
+		 * es este caso es un vista por consola
+		 */
 		int opcion;
 		do {			
             opcion = mostrarMenuView();
@@ -40,6 +55,11 @@ public class ConsolaView implements View {
 	}
 	
 	private int mostrarMenuView(){
+		/*
+		 * Muestro el menu de opciones principal
+		 * y ademas valido que solo se ingrese una 
+		 * opcion valida.
+		 */
 		int opcion;
 		
 		out.println("MEN\u00DA");
@@ -60,9 +80,14 @@ public class ConsolaView implements View {
 	}
 
 	private void mostrarAltaView(){
+		/*
+		 * Vista para la alta de libros
+		 */
 		LibroModel libro = new LibroModel();
 		libro.setISBN(leer_cadena ("Ingrese el ISBN del libro"));
-		
+		/*
+		 * verifico que el libro exista en la biblioteca
+		 */
 		if (gestor.getBibliotecaModel().existeLibro(libro))
 			out.println("El registro ya existe.");
 		else{
@@ -78,9 +103,16 @@ public class ConsolaView implements View {
 	}
 	
 	private void mostrarConsultaView(){
+		/*
+		 * Vista para la consulta de un libro por su 
+		 * ISBN
+		 */
 		LibroModel libro = new LibroModel();
 		libro.setISBN(leer_cadena ("Ingrese el ISBN del libro"));
 		
+		/*
+		 * verifico que el libro existe en la biblioteca
+		 */
 		if (!gestor.getBibliotecaModel().existeLibro(libro))
 			out.println("\nRegistro no encontrado.");
 		else{
@@ -91,12 +123,21 @@ public class ConsolaView implements View {
 	}
 	
 	private void mostrarActualizacionView(){
+		/*
+		 * vista para la actualizacion de un libro
+		 */
 		LibroModel libro = new LibroModel();
 		libro.setISBN(leer_cadena ("Ingrese el ISBN del libro"));
 		
+		/*
+		 * Verifico que el libro existe en mi biblioteca
+		 */
 		if (!gestor.getBibliotecaModel().existeLibro(libro))
 			out.println("\nRegistro no encontrado.");
 		else{
+			/*
+			 * Si existe muestro el menu de opciones de actualizacion
+			 */
 			int opcion = mostrarMenuActualizacion();
 			switch (opcion) {
 				case 1:
@@ -121,9 +162,15 @@ public class ConsolaView implements View {
 	}
 	
 	private void mostrarBajaView(){
+		/*
+		 * Vista de la baja de un libro
+		 */
 		LibroModel libro = new LibroModel();
 		libro.setISBN(leer_cadena ("Ingrese el ISBN del libro"));
 		
+		/*
+		 * Veifico que el libro exista en mi biblioteca
+		 */
 		if (!gestor.getBibliotecaModel().existeLibro(libro))
 			out.println("\nRegistro no encontrado.");
 		else{
@@ -133,11 +180,20 @@ public class ConsolaView implements View {
 	}
 	
 	private void mostrarOrdenarView(){
+		/*
+		 * Vista para ordenar registros, en este
+		 * caso es innecesario mostrar una pantalla 
+		 * completa, asi que se decidio mostrar solo
+		 * un mensaje de confirmacion
+		 */
 		gestor.getBibliotecaModel().ordenarLibros();
         out.println("Registros ordenados correctamente.");
 	}
 	
 	private void mostrarListarView(){
+		/*
+		 * Vista que muestra todos los libros de mi biblioteca
+		 */
         for (LibroModel libro : gestor.getBibliotecaModel().getLibros()) 
 			mostrarLibro(libro);
         
@@ -145,6 +201,10 @@ public class ConsolaView implements View {
 	}
 	
 	private void mostrarSalirView(){
+		/*
+		 * Vista que simplemente guarda los datos del vector en un
+		 * archivo.
+		 */
 		gestor.getBibliotecaModel().actualizarBaseDeDatos();
 	}
 	
@@ -173,11 +233,13 @@ public class ConsolaView implements View {
         	mostrarSalirView();
             break;
         }
-        if (opcion < 7 && opcion >= 1)
-            pausar("");
+        pausar("");
 	}
 	
 	private int mostrarMenuActualizacion(){
+		/*
+		 * Vista de la opcion de actualizacion de libro
+		 */
 		int opcion;
 		
 		out.println("Men\u00FA de modificaci\u00F3n de campos");
