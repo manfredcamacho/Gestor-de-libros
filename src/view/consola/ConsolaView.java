@@ -155,6 +155,8 @@ public class ConsolaView implements View {
 				case 5:
 					libro.setAnno_de_publicacion(leer_entero ("Ingrese el nuevo anno de publicacion"));
 					break;
+				default:
+					break;
 			}
 			gestor.getBibliotecaModel().actualizarLibro(libro);
 			out.println("\nRegistro actualizado correctamente.");
