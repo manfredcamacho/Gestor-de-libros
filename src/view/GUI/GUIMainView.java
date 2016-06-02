@@ -1,6 +1,8 @@
 package view.GUI;
 
+import java.awt.Component;
 import java.awt.Rectangle;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -21,15 +23,17 @@ public class GUIMainView extends JFrame implements View {
 
 	private static final long serialVersionUID = 3877840112281408794L;
 	
+	private Component parentComponent;
 	private Rectangle defaultBounds;
 	private JPanel contentPane;
 	
 	private Gestor gestor;
 	
-	public GUIMainView() {
+	public GUIMainView(Component parentComponent) {
 		super();
 		setTitle("Gestor de Libros");
-		this.defaultBounds = new Rectangle(100, 100, 480, 320);
+		this.parentComponent = parentComponent;
+		this.defaultBounds = this.parentComponent.getBounds();
 		setBounds(this.defaultBounds);
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -157,6 +161,7 @@ public class GUIMainView extends JFrame implements View {
 	
 	private void actualizarDb() {
 		this.gestor.getBibliotecaModel().actualizarBaseDeDatos();
+		this.gestor.getUsuariosModel().actualizarBaseDeDatos();
 	}
 
 	private LibroModel obtenerLibro() {
@@ -191,6 +196,8 @@ public class GUIMainView extends JFrame implements View {
 	@Override
 	public void mostrarView() {
 		this.setVisible(true);
+		Window parentWindow = (Window) this.parentComponent;
+		parentWindow.dispose();
 	}
 	
 	@Override
@@ -200,6 +207,10 @@ public class GUIMainView extends JFrame implements View {
 
 	public Rectangle getDefaultBounds() {
 		return defaultBounds;
+	}
+
+	public Component getParentComponent() {
+		return parentComponent;
 	}
 	
 }
