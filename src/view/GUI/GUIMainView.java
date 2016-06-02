@@ -86,15 +86,15 @@ public class GUIMainView extends JFrame implements View {
 					int option = JOptionPane.showConfirmDialog(
 							null, 
 							String.format(
-								"Â¿Seguro quieres borrar el libro con ISBN %s?",
+								"¿Seguro quieres borrar el libro con ISBN %s?",
 								libro.getISBN()
 							),
-							"Â¡AtenciÃ³n!", 
+							"¡Atenci\u00f3n!", 
 					    	JOptionPane.YES_NO_OPTION
 					   );
 					if(option==0){
 						gestor.getBibliotecaModel().eliminarLibro(libro);
-						JOptionPane.showMessageDialog(null, "Â¡Libro borrado!");
+						JOptionPane.showMessageDialog(null, "¡Libro borrado!");
 					}
 				} else {
 					mostrarLibroNoEncontrado();
@@ -146,7 +146,7 @@ public class GUIMainView extends JFrame implements View {
 			public void actionPerformed(ActionEvent e) {
 				
 				int option = JOptionPane.showConfirmDialog(
-						null, "Â¿Seguro quieres salir?", "Â¡AtenciÃ³n!", 
+						null, "¿Seguro quieres salir?", "¡Atenci\u00f3n!", 
 				    	JOptionPane.YES_NO_OPTION
 				   );
 				
@@ -175,7 +175,7 @@ public class GUIMainView extends JFrame implements View {
 	
 	private void mostrarLibroNoEncontrado(){
 		JOptionPane.showMessageDialog( 
-				this, "Â¡ISBN no encontrado!", "Error", JOptionPane.ERROR_MESSAGE
+				this, "¡ISBN no encontrado!", "Error", JOptionPane.ERROR_MESSAGE
 			);
 	}
 	

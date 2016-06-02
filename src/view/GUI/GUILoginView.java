@@ -92,7 +92,7 @@ public class GUILoginView extends JFrame implements View {
 		lblClave.setBounds(40, 113, 70, 15);
 		contentPane.add(lblClave);
 		
-		JLabel lblOlvidoClave = new JLabel("¿Olvidó su clave?");
+		JLabel lblOlvidoClave = new JLabel("�Olvid\u00f3 su clave?");
 		lblOlvidoClave.setBounds(40, 249, 120, 15);
 		Font font = lblOlvidoClave.getFont();
 		Map attributes = font.getAttributes();
@@ -127,7 +127,7 @@ public class GUILoginView extends JFrame implements View {
 		txtNuevaClave.setBounds(275, 95, 120, 25);
 		contentPane.add(txtNuevaClave);
 		
-		JLabel lblnuevoUsuario = new JLabel("¿Nuevo usuario?");
+		JLabel lblnuevoUsuario = new JLabel("�Nuevo usuario?");
 		lblnuevoUsuario.setHorizontalAlignment(SwingConstants.CENTER);
 		lblnuevoUsuario.setBounds(275, 12, 120, 15);
 		contentPane.add(lblnuevoUsuario);
@@ -184,7 +184,7 @@ public class GUILoginView extends JFrame implements View {
 			} else {
 				this.txtClave.setText("");
 				JOptionPane.showMessageDialog( 
-						this, "Usuario no encontrado, o clave errónea", "Error", JOptionPane.ERROR_MESSAGE
+						this, "Usuario no encontrado, o clave err\u00f3nea", "Error", JOptionPane.ERROR_MESSAGE
 					);
 			}
 		}

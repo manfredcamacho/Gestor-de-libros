@@ -8,11 +8,11 @@ import java.util.Map;
 public enum ColumanLibroTabla {
     
 	ISBN(0, "ISBN"), 
-	TITULO(1, "Título"), 
+	TITULO(1, "T\u00edtulo"), 
 	AUTOR(2, "Autor"), 
 	EDITORIAL(3, "Editorial"), 
-	EDICION(4, "Edición"), 
-	ANIO(5, "Año");
+	EDICION(4, "Edici\u00f3n"), 
+	ANIO(5, "A\u00f1o");
 
     private int indice;
     private String nombreColumna;

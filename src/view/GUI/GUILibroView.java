@@ -75,7 +75,7 @@ public class GUILibroView extends JFrame implements View {
 		this.txtISBN.setBounds(230, 10, 120, 25);
 		this.contentPane.add(this.txtISBN);
 		
-		JLabel lblTitulo = new JLabel("Título");
+		JLabel lblTitulo = new JLabel("T\u00edtulo");
 		lblTitulo.setBounds(80, 50, 120, 25);
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		this.contentPane.add(lblTitulo);
@@ -102,7 +102,7 @@ public class GUILibroView extends JFrame implements View {
 		this.txtEditorial.setBounds(230, 130, 120, 25);
 		this.contentPane.add(this.txtEditorial);
 
-		JLabel lblEdicion = new JLabel("Edicion");
+		JLabel lblEdicion = new JLabel("Edici\u00f3n");
 		lblEdicion.setBounds(80, 170, 120, 25);
 		lblEdicion.setHorizontalAlignment(SwingConstants.CENTER);
 		this.contentPane.add(lblEdicion);
@@ -111,7 +111,7 @@ public class GUILibroView extends JFrame implements View {
 		this.txtEdicion.setBounds(230, 170, 120, 25);
 		this.contentPane.add(this.txtEdicion);
 
-		JLabel lblAnioPublicacion = new JLabel("Año Publicacion");
+		JLabel lblAnioPublicacion = new JLabel("A\u00f1o Publicaci\u00f3n");
 		lblAnioPublicacion.setBounds(80, 210, 120, 25);
 		lblAnioPublicacion.setHorizontalAlignment(SwingConstants.CENTER);
 		this.contentPane.add(lblAnioPublicacion);
@@ -174,7 +174,7 @@ public class GUILibroView extends JFrame implements View {
 			|| this.txtEdicion.getText().isEmpty() || this.txtAnioPublicacion.getText().isEmpty() ){
 			
 			JOptionPane.showMessageDialog( 
-					this, "¡Todos los campos son mandatorios!", 
+					this, "�Todos los campos son mandatorios!", 
 					"Error", JOptionPane.ERROR_MESSAGE
 				);
 		} else {
@@ -201,7 +201,7 @@ public class GUILibroView extends JFrame implements View {
 				 * se lanza un excepcion mostrando un mensaje.
 				 */
 				JOptionPane.showMessageDialog( 
-						this, "Debe ingresar valores numéricos para campos Número de Edición y Año", 
+						this, "Debe ingresar valores num\u00e9ricos para campos N\u00famero de Edici\u00f3n y A\u00f1o", 
 						"Error", JOptionPane.ERROR_MESSAGE
 					);
 			}
