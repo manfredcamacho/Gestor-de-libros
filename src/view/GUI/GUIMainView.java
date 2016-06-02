@@ -53,6 +53,7 @@ public class GUIMainView extends JFrame implements View {
 		
 		JButton btnAlta = new JButton("Alta");
 		btnAlta.setBounds(35, 40, 120, 25);
+		btnAlta.setToolTipText("Dar de alta un nuevo libro.");
 		btnAlta.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -63,6 +64,7 @@ public class GUIMainView extends JFrame implements View {
 		
 		JButton btnActualizar = new JButton("Actualizar");
 		btnActualizar.setBounds(175, 40, 120, 25);
+		btnActualizar.setToolTipText("Actualizaci\u00f3n de la informaci\u00f3n de un libro ingresando el ISBN.");
 		btnActualizar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -78,6 +80,7 @@ public class GUIMainView extends JFrame implements View {
 		
 		JButton btnBaja = new JButton("Baja");
 		btnBaja.setBounds(315, 40, 120, 25);
+		btnBaja.setToolTipText("Eliminar un libro ingresando el ISBN.");
 		btnBaja.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -105,6 +108,7 @@ public class GUIMainView extends JFrame implements View {
 		
 		JButton btnConsulta = new JButton("Consultar");
 		btnConsulta.setBounds(35, 115, 120, 25);
+		btnConsulta.setToolTipText("Consultar la informaci\u00f3n de un libro ingresando el ISBN.");
 		btnConsulta.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -120,6 +124,7 @@ public class GUIMainView extends JFrame implements View {
 		
 		JButton btnListar = new JButton("Listar");
 		btnListar.setBounds(175, 115, 120, 25);
+		btnListar.setToolTipText("Listar toda la informaci\u00f3n de los libros almacenados.");
 		btnListar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -130,6 +135,7 @@ public class GUIMainView extends JFrame implements View {
 		
 		JButton btnOrdenar = new JButton("Ordenar");
 		btnOrdenar.setBounds(315, 115, 120, 25);
+		btnOrdenar.setToolTipText("Ordenar los libros respecto al ISBN.");
 		btnOrdenar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -141,6 +147,7 @@ public class GUIMainView extends JFrame implements View {
 		
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.setBounds(315, 230, 120, 25);
+		btnSalir.setToolTipText("Salir de la aplicacin guardando los datos de los libros.");
 		btnSalir.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -166,8 +173,11 @@ public class GUIMainView extends JFrame implements View {
 
 	private LibroModel obtenerLibro() {
 		String ISBN = (String) JOptionPane.showInputDialog(
-                this, "Ingresar ISBN", JOptionPane.PLAIN_MESSAGE
-            );
+                this, "Ingresar ISBN", "");
+		
+		if (ISBN == null)
+			return null;
+			
 		LibroModel libroAux = new LibroModel();
 		libroAux.setISBN(ISBN);
 		return this.gestor.getBibliotecaModel().getLibro(libroAux);
